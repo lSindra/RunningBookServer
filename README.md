@@ -11,7 +11,7 @@ Para instalar o servidor é necessário rodar:
 
 ```shell
 git clone https://github.com/lSindra/RunningBookServer.git
-cd RunnigBookServer
+cd RunningBookServer
 npm start
 ```
 
