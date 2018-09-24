@@ -19,7 +19,7 @@ var corsOptions = {
 
 con.connect((err) => {
   if (err) throw err;
-  console.log('Connected!');
+  console.log('Connected to database!');
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
@@ -30,8 +30,11 @@ app.get('/', (req, res) => res.send('Server is up and running'))
 
 //Get all users
 app.route('/api/users').get((req, res) => {
-  res.send({
-    users: []
+  var sql = "select * from usuario";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    res.send(result);
   });
 });
 
