@@ -36,13 +36,13 @@ module.exports = {
 
 			const query = INSERTINTO + USER + ` (UserName, Password, Name, Birthday, City) VALUES('${username}', '${password}', '${name}', '${birthday}', '${city}')`;
 			
-			res.send(201, req.body);
+			res.status(201).send(body)
 		});
 
 		//Update user
 		app.route('/api/users/:username').put((req, res) => {
 			//TODO
-			res.send(200, req.body);
+			res.status(200).send(body)
 		});
 
 		//Delete user
