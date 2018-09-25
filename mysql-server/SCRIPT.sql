@@ -47,7 +47,7 @@ CONSTRAINT FK_PT FOREIGN KEY (ID_PARTY) REFERENCES PARTY(ID_PARTY)
 );
 
 
-INSERT INTO USER (UserName, Password, Name,Birthday,City)
+INSERT INTO USER (UserName, Password, Name, Birthday, City)
 VALUES('Guilherme123', 'senha123', 'Guilherme', '1994-05-16','Porto Alegre'),
 	  ('Julia123', 'senha123', 'Julia','1988-08-10','Boston');
       
