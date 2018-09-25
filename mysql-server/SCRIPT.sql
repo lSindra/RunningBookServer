@@ -3,6 +3,7 @@ USE runningbook;
 CREATE TABLE USER(
 ID_USER INT auto_increment,
 UserName VARCHAR(30) NOT NULL,
+Password VARCHAR(255) DEFAULT NULL,
 Name VARCHAR(30) NOT NULL,
 Score INT DEFAULT 0,
 Level VARCHAR(10) DEFAULT '1',
@@ -46,9 +47,9 @@ CONSTRAINT FK_PT FOREIGN KEY (ID_PARTY) REFERENCES PARTY(ID_PARTY)
 );
 
 
-INSERT INTO USER (UserName, Name,Birthday,City)
-VALUES('Guilherme123', 'Guilherme', '1994-05-16','Porto Alegre'),
-	  ('Julia123', 'Julia','1988-08-10','Boston');
+INSERT INTO USER (UserName, Password, Name,Birthday,City)
+VALUES('Guilherme123', 'senha123', 'Guilherme', '1994-05-16','Porto Alegre'),
+	  ('Julia123', 'senha123', 'Julia','1988-08-10','Boston');
       
 INSERT INTO CATEGORY (Category)
 VALUES('Corrida'),
