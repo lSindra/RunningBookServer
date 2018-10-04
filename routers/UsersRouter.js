@@ -1,3 +1,5 @@
+const SHA256 = require("crypto-js/sha256");
+
 const SELECTALL = 'select * from ';
 const INSERTINTO = 'INSERT INTO ';
 const UPDATE = 'UPDATE ';
@@ -32,7 +34,7 @@ module.exports = {
 		//Register user
 		app.route('/api/users').post((req, res) => {
 		    const username = req.body.username;
-		    const password = req.body['password'];
+		    const password = SHA256(req.body['password']);
 		    const name = req.body['name'];
 		    const birthday = req.body['birthday'];
 		    const city = req.body['city'];
@@ -47,23 +49,12 @@ module.exports = {
 
 		//Update user
 		app.route('/api/users/:username').put((req, res) => {
-			//TODO
-			db.query(query, function (err, result) {
-	    		if (err) throw err;
-				res.status(200).send(req.body)
-  			});
+			//UPDATE MODULAR
 		});
 
 		//Delete user
 		app.route('/api/users/:username').delete((req, res) => {
-			const username = req.params['username'];
-		    const comparison = `username = ${username}`;
-			const query = DELETE + USER + WHERE + comparison;
-
-			db.query(query, function (err, result) {
-	    		if (err) throw err;
-				res.status(204).send(req.body)
-  			});
+			//DONT DELETE, CHANGE STATUS
 		});
 
 		console.log('UserRouter instantiated');
